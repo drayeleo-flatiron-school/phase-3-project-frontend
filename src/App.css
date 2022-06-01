@@ -37,6 +37,11 @@
   }
 }
 
+.title{
+  margin-left:100px;
+  max-width: 10%;
+}
+
 /* <singleRecipe /> */
 
 .steps {
@@ -91,3 +96,4 @@
     z-index: -1;
   }
 }
+

@@ -17,7 +17,13 @@ function Test() {
           <div keu={r.id}>
               <p>{r.name}</p>
           <p>{JSON.parse(r.ingredients)}</p>
-          <p>{JSON.parse(r.instructions)}</p>
+          <ol>
+              {JSON.parse(r.instructions).map((step, index) => {
+                  return (
+                      <li key={index}>{step}</li>
+                  )
+              })}
+          </ol>
           </div>
       )
   })

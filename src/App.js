@@ -1,13 +1,24 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from "./components/Header";
 import HighlightedRecipes from "./components/HighlightedRecipes";
+import SingleRecipe from "./components/SingleRecipe";
+import "./App.css";
 
 function App() {
   return (
-    <div>
+    <Router>
       <Header />
-      <HighlightedRecipes />
-    </div>
+        <Switch>
+          <Route exact path="/" >
+            <HighlightedRecipes />
+          </Route>
+          <Route exact path="/recipes/:id" >
+            <SingleRecipe />
+          </Route>
+        </Switch>
+      
+    </Router>
   );
 }
 

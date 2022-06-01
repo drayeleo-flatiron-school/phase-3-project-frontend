@@ -4,8 +4,19 @@ import Header from "./components/Header";
 import HighlightedRecipes from "./components/HighlightedRecipes";
 import SingleRecipe from "./components/SingleRecipe";
 import "./App.css";
+import SearchBar from "./components/SearchBar";
 
 function App() {
+
+  const [filteredSearch, setFilteredSearch] = useState(recipeData);
+
+  function handleFoodSearch(e){
+    const filteredRecipeData=recipeData.filter(recipe =>{
+      return recipe.name.toLowerCase().includes(e.target.value.toLowerCase())
+      || recipe.ingredients.toLowerCase().includes(e.target.value.toLowerCase());
+    })
+    setFilteredSearch(filteredRecipeData)
+  }
   return (
     <Router>
       <Header />

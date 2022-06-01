@@ -17,15 +17,20 @@ function App() {
     })
     setFilteredSearch(filteredRecipeData)
   }
+  useEffect(() => {
+    setFilteredSearch(recipeData)
+  }, [recipeData]);
+  
   return (
+    
     <Router>
       <Header />
         <Switch>
           <Route exact path="/" >
-            <HighlightedRecipes />
+            <HighlightedRecipes handleFoodSearch={handleFoodSearch} recipeData={filteredSearch} SearchBar={SearchBar} />
           </Route>
           <Route exact path="/recipes/:id" >
-            <SingleRecipe />
+            <SingleRecipe recipeData={filteredSearch} />
           </Route>
         </Switch>
       

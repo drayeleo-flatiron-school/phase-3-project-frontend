@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Test from "./Test";
+import SearchBar from "./SearchBar"
 
 function HighlightedRecipes() {
   const [recipeData, setRecipeData] = useState([]);

@@ -22,7 +22,7 @@ function App() {
   }, [recipeData]);
   
   return (
-    
+    // need to add <Search handleFoodSearch={handleFoodSearch}> and maybe <NavBar> in here
     <Router>
       <Header />
         <Switch>

@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.highlights-section {
+  display: grid;
+  grid-gap: 15px; 
+  overflow: hidden;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-flow: dense;
+}
+
+.item:nth-of-type(3n) {
+  grid-column: span 2;  
+}
+
+.item:nth-of-type(5n) {
+  grid-row: span 2;  
+}

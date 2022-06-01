@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import HighlightedRecipes from "./components/HighlightedRecipes";
 import SingleRecipe from "./components/SingleRecipe";
@@ -9,15 +9,14 @@ function App() {
   return (
     <Router>
       <Header />
-        <Switch>
-          <Route exact path="/" >
-            <HighlightedRecipes />
-          </Route>
-          <Route exact path="/recipes/:id" >
-            <SingleRecipe />
-          </Route>
-        </Switch>
-      
+      <Switch>
+        <Route exact path="/">
+          <HighlightedRecipes />
+        </Route>
+        <Route exact path="/recipes/:id">
+          <SingleRecipe />
+        </Route>
+      </Switch>
     </Router>
   );
 }

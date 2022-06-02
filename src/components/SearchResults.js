@@ -12,7 +12,7 @@ function SearchResults() {
     fetch(`http://localhost:9292/recipes/search/${searchPhrase}`) //currently only works with single-word search?
       .then((response) => response.json())
       .then((data) => setSearchResults(data));
-  }, []);
+  }, [searchPhrase]);
 
   return (
     <div>

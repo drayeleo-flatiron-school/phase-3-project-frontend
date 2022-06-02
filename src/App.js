@@ -7,6 +7,7 @@ import SingleRecipe from "./components/SingleRecipe";
 import "./App.css";
 import SearchResults from "./components/SearchResults";
 import AllRecipes from "./components/AllRecipes";
+import CategorySearchResults from "./components/CategorySearchResults";
 import EditRecipe from "./components/EditRecipe";
 import PostRecipe from "./components/PostRecipe";
 
@@ -72,6 +73,9 @@ function App() {
           {/* <SingleRecipe recipeData={filteredSearch} /> */}
           <SingleRecipe deleteRecipe={deleteRecipe} />
         </Route>
+        <Route exact path="/categories/:id">
+          <CategorySearchResults />
+        </Route>
         <Route exact path="/search/:searchPhrase">
           <SearchResults />
         </Route>
@@ -100,6 +104,8 @@ index.js
     AllRecipes
       RecipeCard
     SearchResults
+      RecipeCard
+    CategorySearchResults
       RecipeCard
     SingleRecipe
 */

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { Container, Row, Col } from "react-grid-system";
 
 
@@ -8,7 +8,6 @@ function SingleRecipe({deleteRecipe}) {
   const [singleRecipe, setSingleRecipe] = useState({});
   const { id } = useParams();
   const history = useHistory();
- 
 
   useEffect(() => {
     fetch(`http://localhost:9292/recipes/${id}`)
@@ -34,11 +33,24 @@ function SingleRecipe({deleteRecipe}) {
   
   if (!isLoaded) return <h2>Loading...</h2>;
 
+  function handleNavigateToCategory(categoryId) {
+    // console.log("clicked!");
+    history.push(`/categories/${categoryId}`);
+  }
+
   function buildTagButtons() {
     return (
       <div>
         {singleRecipe.categories.map((category) => (
-          <button key={category.id}>#{category.name}</button>
+          // <button key={category.id} href={`/categories/${category.id}`} >
+          //   #{category.name}
+          // </button>
+          <button
+            key={category.id}
+            onClick={() => handleNavigateToCategory(category.id)}
+          >
+            #{category.name}
+          </button>
         ))}
       </div>
     );

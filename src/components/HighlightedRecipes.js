@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import Test from "./Test";
-import SearchBar from "./SearchBar";
-import HighlightCard from "./HighlightCard";
+// import SearchBar from "./SearchBar";
+// import HighlightCard from "./HighlightCard";
 import RecipeCard from "./RecipeCard";
 
 function HighlightedRecipes() {
@@ -45,15 +45,6 @@ function HighlightedRecipes() {
   return (
     <div>
       <div className="highlights-section">{generateHighlights()}</div>
-      {/* <h1>{recipeData[randomNum].name}</h1>
-      {recipeData.length > 0 ? (
-        <img
-          style={{ height: "400px" }}
-          src={recipeData[randomNum].image_url}
-          alt={recipeData[randomNum].name}
-        />
-      ) : null} */}
-      {/* <Test /> */}
     </div>
   );
 }

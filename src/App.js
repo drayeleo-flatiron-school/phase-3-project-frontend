@@ -6,6 +6,7 @@ import HighlightedRecipes from "./components/HighlightedRecipes";
 import SingleRecipe from "./components/SingleRecipe";
 import "./App.css";
 import SearchResults from "./components/SearchResults";
+import AllRecipes from "./components/AllRecipes";
 
 function App() {
   function handleFoodSearch(search) {
@@ -19,9 +20,9 @@ function App() {
         <Route exact path="/">
           <HighlightedRecipes />
         </Route>
-        {/* <Route exact path="/recipes">
-          <RecipeCard />
-        </Route> */}
+        <Route exact path="/recipes">
+          <AllRecipes />
+        </Route>
         <Route exact path="/recipes/:id">
           <SingleRecipe />
         </Route>

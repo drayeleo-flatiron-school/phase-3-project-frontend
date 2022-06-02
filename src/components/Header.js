@@ -1,12 +1,16 @@
 import NavBar from "./NavBar";
 import SearchBar from "./SearchBar";
 
-function Header() {
+function Header({ handleFoodSearch }) {
+  // function handleFoodSearch(searchPhrase) {
+  //   console.log("ran handleFoodSearch. searchPhrase: ", searchPhrase);
+  // }
+
   return (
     <div>
       Header
       <NavBar />
-      <SearchBar />
+      <SearchBar handleFoodSearch={handleFoodSearch} />
     </div>
   );
 }

@@ -1,39 +1,36 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import HighlightedRecipes from "./components/HighlightedRecipes";
 import SingleRecipe from "./components/SingleRecipe";
 import "./App.css";
-import SearchBar from "./components/SearchBar";
+// import SearchBar from "./components/SearchBar";
+import SearchResults from "./components/SearchResults";
 
 function App() {
-
-  const [filteredSearch, setFilteredSearch] = useState(recipeData);
-
-  function handleFoodSearch(e){
-    const filteredRecipeData=recipeData.filter(recipe =>{
-      return recipe.name.toLowerCase().includes(e.target.value.toLowerCase())
-      || recipe.ingredients.toLowerCase().includes(e.target.value.toLowerCase());
-    })
-    setFilteredSearch(filteredRecipeData)
+  function handleFoodSearch(search) {
+    console.log("ran handleFoodSearch. searchPhrase: ", search);
   }
-  useEffect(() => {
-    setFilteredSearch(recipeData)
-  }, [recipeData]);
-  
+
   return (
-    // need to add <Search handleFoodSearch={handleFoodSearch}> and maybe <NavBar> in here
     <Router>
-      <Header />
-        <Switch>
-          <Route exact path="/" >
-            <HighlightedRecipes handleFoodSearch={handleFoodSearch} recipeData={filteredSearch} SearchBar={SearchBar} />
-          </Route>
-          <Route exact path="/recipes/:id" >
-            <SingleRecipe recipeData={filteredSearch} />
-          </Route>
-        </Switch>
-      
+      <Header handleFoodSearch={handleFoodSearch} />
+      <Switch>
+        <Route exact path="/">
+          <HighlightedRecipes
+          // handleFoodSearch={handleFoodSearch}
+          // recipeData={filteredSearch}
+          // SearchBar={SearchBar}
+          />
+        </Route>
+        <Route exact path="/recipes/:id">
+          {/* <SingleRecipe recipeData={filteredSearch} /> */}
+          <SingleRecipe />
+        </Route>
+        <Route exact path="/search/:searchPhrase">
+          <SearchResults />
+        </Route>
+      </Switch>
     </Router>
   );
 }
@@ -48,7 +45,11 @@ App
   Header
     NavBar
     SearchBar
+  
   HighlightedRecipes
+  OR
+  SearchResults
+    SearchResult
 
 */
 

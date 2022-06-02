@@ -1,27 +1,36 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import HighlightedRecipes from "./components/HighlightedRecipes";
 import SingleRecipe from "./components/SingleRecipe";
 import "./App.css";
+import SearchResults from "./components/SearchResults";
 import RecipeCards from './components/RecipeCards';
 
 function App() {
+  function handleFoodSearch(search) {
+    console.log("ran handleFoodSearch. searchPhrase: ", search);
+  }
+
   return (
     <Router>
-      <Header />
-        <Switch>
-          <Route exact path="/" >
-            <HighlightedRecipes />
-          </Route>
-          <Route exact path="/recipes" >
+      <Header handleFoodSearch={handleFoodSearch} />
+      <Switch>
+        <Route exact path="/">
+          <HighlightedRecipes />
+        </Route>
+        <Route exact path="/recipes" >
             <RecipeCards />
-          </Route>
-          <Route exact path="/recipes/:id" >
-            <SingleRecipe />
-          </Route>
-        </Switch>
+        </Route>
+        <Route exact path="/recipes/:id">
+          {/* <SingleRecipe recipeData={filteredSearch} /> */}
+          <SingleRecipe />
+        </Route>
+        <Route exact path="/search/:searchPhrase">
+          <SearchResults />
+        </Route>
+      </Switch>
     </Router>
   );
 }
@@ -36,7 +45,11 @@ App
   Header
     NavBar
     SearchBar
+  
   HighlightedRecipes
+  OR
+  SearchResults
+    SearchResult
 
 */
 

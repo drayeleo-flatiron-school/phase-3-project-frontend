@@ -3,7 +3,11 @@ import SearchBar from "./SearchBar";
 import { NavLink } from "react-router-dom";
 import {Navbar, Container,Offcanvas,NavDropdown,Form,FormControl,Button,Nav} from 'react-bootstrap'
 
-function Header() {
+function Header({ handleFoodSearch }) {
+  // function handleFoodSearch(searchPhrase) {
+  //   console.log("ran handleFoodSearch. searchPhrase: ", searchPhrase);
+  // }
+
   return (
     <>
     {['xl'].map((expand) => (
@@ -16,7 +20,7 @@ function Header() {
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/recipes">Recipes</Nav.Link>
               </Nav>
-              <SearchBar />
+              <SearchBar handleFoodSearch={handleFoodSearch} />
             </Offcanvas.Body>
         </Container>
       </Navbar>

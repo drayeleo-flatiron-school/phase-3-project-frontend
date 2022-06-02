@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import Test from "./Test";
+import SearchBar from "./SearchBar"
 import HighlightCard from "./HighlightCard";
 
 function HighlightedRecipes() {

@@ -96,7 +96,7 @@ function PostRecipe({ handlePost }) {
         .then(res => res.json())
         .then(data => {
             handlePost(data);
-            history.pushState(`/recipes/${data.id}`);
+            history.push(`/recipes/${data.id}`);
         });
     }
 

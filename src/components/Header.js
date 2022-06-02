@@ -7,14 +7,14 @@ function Header() {
   return (
     <>
     {['xl'].map((expand) => (
-      <Navbar key={expand} bg="light" expand={expand} className="mb-3">
+      <Navbar key={expand} expand={expand} className="mb-3 navbar">
         <Container fluid>
           <Navbar.Brand href="/">Title</Navbar.Brand>
           <Navbar.Toggle />
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="#action2">Recipes</Nav.Link>
+                <Nav.Link href="/recipes">Recipes</Nav.Link>
               </Nav>
               <SearchBar />
             </Offcanvas.Body>

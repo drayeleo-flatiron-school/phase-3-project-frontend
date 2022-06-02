@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import HighlightedRecipes from "./components/HighlightedRecipes";
 import SingleRecipe from "./components/SingleRecipe";
 import "./App.css";
+import RecipeCards from './components/RecipeCards';
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
         <Switch>
           <Route exact path="/" >
             <HighlightedRecipes />
+          </Route>
+          <Route exact path="/recipes" >
+            <RecipeCards />
           </Route>
           <Route exact path="/recipes/:id" >
             <SingleRecipe />

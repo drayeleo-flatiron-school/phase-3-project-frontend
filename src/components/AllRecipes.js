@@ -19,7 +19,7 @@ function AllRecipes() {
   console.log(recipeData);
 
   function generateCards() {
-    console.log("generateCards");
+    // console.log("generateCards");
     return recipeData.map((recipe) => {
       return <RecipeCard key={recipe.id} recipe={recipe} />;
     });

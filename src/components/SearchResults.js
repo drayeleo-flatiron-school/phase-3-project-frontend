@@ -1,22 +1,25 @@
-import SearchResult from "./SearchResult";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import RecipeCard from "./RecipeCard";
 
 function SearchResults() {
   const { searchPhrase } = useParams();
+  const [searchResults, setSearchResults] = useState([]);
 
-  console.log(searchPhrase);
+  // console.log(searchPhrase);
 
   useEffect(() => {
-    fetch("http://localhost:9292/recipes") //add: /search/<searchPhrase>
+    fetch(`http://localhost:9292/recipes/search/${searchPhrase}`) //currently only works with single-word search?
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => setSearchResults(data));
   }, []);
 
   return (
     <div>
-      <h2>Search Results for {searchPhrase} </h2>
-      <SearchResult />
+      <h2>Search results for "{searchPhrase}":</h2>
+      {searchResults.map((recipe) => (
+        <RecipeCard key={recipe.id} recipe={recipe} />
+      ))}
     </div>
   );
 }

@@ -7,6 +7,7 @@ import SingleRecipe from "./components/SingleRecipe";
 import "./App.css";
 import SearchResults from "./components/SearchResults";
 import AllRecipes from "./components/AllRecipes";
+import CategorySearchResults from "./components/CategorySearchResults";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route exact path="/recipes/:id">
           <SingleRecipe />
+        </Route>
+        <Route exact path="/categories/:id">
+          <CategorySearchResults />
         </Route>
         <Route exact path="/search/:searchPhrase">
           <SearchResults />
@@ -44,6 +48,8 @@ index.js
     AllRecipes
       RecipeCard
     SearchResults
+      RecipeCard
+    CategorySearchResults
       RecipeCard
     SingleRecipe
 */

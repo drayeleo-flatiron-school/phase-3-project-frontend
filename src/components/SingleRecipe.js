@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { Container, Row, Col } from "react-grid-system";
 
 function SingleRecipe() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [singleRecipe, setSingleRecipe] = useState({});
   const { id } = useParams();
+  const history = useHistory();
 
   // console.log(id);
 
@@ -19,15 +20,28 @@ function SingleRecipe() {
   }, [id]);
 
   const { name, ingredients, instructions, image_url } = singleRecipe;
-  console.log(singleRecipe);
+  // console.log(singleRecipe);
 
   if (!isLoaded) return <h2>Loading...</h2>;
+
+  function handleNavigateToCategory(categoryId) {
+    // console.log("clicked!");
+    history.push(`/categories/${categoryId}`);
+  }
 
   function buildTagButtons() {
     return (
       <div>
         {singleRecipe.categories.map((category) => (
-          <button key={category.id}>#{category.name}</button>
+          // <button key={category.id} href={`/categories/${category.id}`} >
+          //   #{category.name}
+          // </button>
+          <button
+            key={category.id}
+            onClick={() => handleNavigateToCategory(category.id)}
+          >
+            #{category.name}
+          </button>
         ))}
       </div>
     );

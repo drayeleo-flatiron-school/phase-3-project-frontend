@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import HighlightedRecipes from "./components/HighlightedRecipes";
 import SingleRecipe from "./components/SingleRecipe";
@@ -22,7 +22,6 @@ function App() {
             <SingleRecipe />
           </Route>
         </Switch>
-      
     </Router>
   );
 }

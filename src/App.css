@@ -37,6 +37,11 @@
   }
 }
 
+.title{
+  margin-left:100px;
+  max-width: 10%;
+}
+
 /* <singleRecipe /> */
 
 .steps {
@@ -90,4 +95,9 @@
     width: 1.35em;
     z-index: -1;
   }
+}
+
+/* navbar */
+.navbar {
+  background-color: lightgreen;
 }

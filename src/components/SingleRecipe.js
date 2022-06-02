@@ -57,12 +57,13 @@ function SingleRecipe({deleteRecipe}) {
   }
 
   return (
-          {buildTagButtons()}
+          
       <>
         <Container>
             <Row>
                 <Col lg={6}>
                 <img style={{ width: "400px" }} src={image_url} alt={name} />
+                {buildTagButtons()}
                 </Col>
                 <Col lg={6}>
                 <div id={recipeId}>

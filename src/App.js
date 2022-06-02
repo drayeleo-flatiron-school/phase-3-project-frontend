@@ -1,11 +1,12 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import HighlightedRecipes from "./components/HighlightedRecipes";
 import SingleRecipe from "./components/SingleRecipe";
 import "./App.css";
-// import SearchBar from "./components/SearchBar";
 import SearchResults from "./components/SearchResults";
+import RecipeCards from './components/RecipeCards';
 
 function App() {
   function handleFoodSearch(search) {
@@ -17,11 +18,10 @@ function App() {
       <Header handleFoodSearch={handleFoodSearch} />
       <Switch>
         <Route exact path="/">
-          <HighlightedRecipes
-          // handleFoodSearch={handleFoodSearch}
-          // recipeData={filteredSearch}
-          // SearchBar={SearchBar}
-          />
+          <HighlightedRecipes />
+        </Route>
+        <Route exact path="/recipes" >
+            <RecipeCards />
         </Route>
         <Route exact path="/recipes/:id">
           {/* <SingleRecipe recipeData={filteredSearch} /> */}

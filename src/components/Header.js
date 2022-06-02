@@ -17,7 +17,7 @@ function Header() {
       {["xl"].map((expand) => (
         <Navbar key={expand} expand={expand} className="mb-3 navbar">
           <Container fluid>
-            <Navbar.Brand href="/">Yo Momma's Kitchen</Navbar.Brand>
+            <Navbar.Brand href="/">Your Mom's Kitchen</Navbar.Brand>
             <Navbar.Toggle />
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">

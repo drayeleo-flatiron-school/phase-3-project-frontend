@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function SearchBar({ handleFoodSearch }) {
+function SearchBar() {
   const [search, setSearch] = useState("");
   const history = useHistory();
 
@@ -13,7 +13,6 @@ function SearchBar({ handleFoodSearch }) {
   function handleSubmitSearch(search) {
     const searchString = search; //.split(" ").join("+");
     history.push(`/search/${searchString}`);
-    handleFoodSearch(search); //delete? If I can delete handleFoodSearch from App. Will also mean deleteing prop passing in app and header
   }
 
   return (

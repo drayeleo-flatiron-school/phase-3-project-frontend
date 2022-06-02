@@ -9,13 +9,9 @@ import SearchResults from "./components/SearchResults";
 import AllRecipes from "./components/AllRecipes";
 
 function App() {
-  function handleFoodSearch(search) {
-    console.log("ran handleFoodSearch. searchPhrase: ", search);
-  }
-
   return (
     <Router>
-      <Header handleFoodSearch={handleFoodSearch} />
+      <Header />
       <Switch>
         <Route exact path="/">
           <HighlightedRecipes />
@@ -40,16 +36,16 @@ export default App;
 Component File:
 
 index.js
-App
-  Header
-    NavBar
-    SearchBar
-  
-  HighlightedRecipes
-  OR
-  SearchResults
-    SearchResult
-
+  App
+    Header
+      SearchBar    
+    HighlightedRecipes
+      RecipeCard
+    AllRecipes
+      RecipeCard
+    SearchResults
+      RecipeCard
+    SingleRecipe
 */
 
 // Template App.js file:

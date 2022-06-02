@@ -11,11 +11,7 @@ import {
   Nav,
 } from "react-bootstrap";
 
-function Header({ handleFoodSearch }) {
-  // function handleFoodSearch(searchPhrase) {
-  //   console.log("ran handleFoodSearch. searchPhrase: ", searchPhrase);
-  // }
-
+function Header() {
   return (
     <>
       {["xl"].map((expand) => (
@@ -28,7 +24,7 @@ function Header({ handleFoodSearch }) {
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/recipes">Browse Recipes</Nav.Link>
               </Nav>
-              <SearchBar handleFoodSearch={handleFoodSearch} />
+              <SearchBar />
             </Offcanvas.Body>
           </Container>
         </Navbar>

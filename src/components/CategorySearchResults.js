@@ -28,7 +28,7 @@ function CategorySearchResults() {
   }
 
   // return JSX
-  return <div>{generateCards()}</div>;
+  return <div className="results-container">{generateCards()}</div>;
   // return null;
 }
 

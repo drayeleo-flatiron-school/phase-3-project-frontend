@@ -26,7 +26,7 @@ function AllRecipes() {
   }
 
   // return JSX
-  return <div>{generateCards()}</div>;
+  return <div className="results-container">{generateCards()}</div>;
 }
 
 export default AllRecipes;

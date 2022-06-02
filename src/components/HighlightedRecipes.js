@@ -42,11 +42,7 @@ function HighlightedRecipes() {
   }
 
   // return JSX
-  return (
-    <div>
-      <div className="highlights-section">{generateHighlights()}</div>
-    </div>
-  );
+  return <div className="results-container">{generateHighlights()}</div>;
 }
 
 export default HighlightedRecipes;

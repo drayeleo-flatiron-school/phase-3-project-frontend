@@ -101,3 +101,11 @@
 .navbar {
   background-color: lightgreen;
 }
+
+.results-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
+  justify-content: flex-start;
+  gap: 20px 20px;
+}

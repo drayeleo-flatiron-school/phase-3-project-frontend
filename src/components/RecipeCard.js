@@ -1,14 +1,14 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 function RecipeCard({ recipe }) {
-  const history = useHistory();
+  // const history = useHistory();
 
-  function handleNavigateToRecipe() {
-    // console.log("clicked!");
-    history.push(`/recipes/${recipe.id}`);
-  }
+  // function handleNavigateToRecipe() {
+  //   // console.log("clicked!");
+  //   history.push(`/recipes/${recipe.id}`);
+  // }
 
   return (
     <Card style={{ width: "18rem" }}>

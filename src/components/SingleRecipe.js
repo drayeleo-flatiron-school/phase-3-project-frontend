@@ -6,7 +6,9 @@ function SingleRecipe() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [singleRecipe, setSingleRecipe] = useState({});
   const { id } = useParams();
-  console.log(id);
+
+  // console.log(id);
+
   useEffect(() => {
     fetch(`http://localhost:9292/recipes/${id}`)
       .then((res) => res.json())
@@ -20,11 +22,23 @@ function SingleRecipe() {
   console.log(singleRecipe);
 
   if (!isLoaded) return <h2>Loading...</h2>;
+
+  function buildTagButtons() {
+    return (
+      <div>
+        {singleRecipe.categories.map((category) => (
+          <button key={category.id}>#{category.name}</button>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <Container>
       <Row>
         <Col lg={6}>
           <img style={{ width: "400px" }} src={image_url} alt={name} />
+          {buildTagButtons()}
         </Col>
         <Col lg={6}>
           <h1>{name}</h1>

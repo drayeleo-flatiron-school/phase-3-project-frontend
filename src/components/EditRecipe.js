@@ -20,8 +20,8 @@ const textareaStyles = {
 };
 
 
-function EditRecipe({category, handlePatch}) {
-
+function EditRecipe({category, handlePatch, handlPostCategories}) {
+    const [newCategory, setNewCategory] = useState({name: ""})
     const [ingredientsInput, setIngredientsInput] = useState([]);
     const [instructionsInput, setInstructionsInput] = useState([]);
     const [categoryData, setCategoryData] = useState([{
@@ -144,8 +144,35 @@ function EditRecipe({category, handlePatch}) {
         setCategoryData(list);
     }
 
+    function handleCreateCategories(e) {
+        const { name, value } = e.target;
+        setNewCategory({...newCategory, [name]: value})
+    }
+
+    function fetchNewCategory(e) {
+        e.preventDefault();
+        fetch("http://localhost:9292/categories", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: 'application/json'
+            },
+            body: JSON.stringify(newCategory)
+        })
+        .then(res => res.json())
+        .then(data => handlPostCategories(data));
+        setNewCategory({name: ""});
+    }
+console.log(newCategory)
   return (
-    <form onSubmit={handleSubmit} >
+      <>
+           <form onSubmit={fetchNewCategory}>
+                <p>want a new category?</p>
+                <input style={inputStyles} type="text" name="name" value={newCategory.name} onChange={handleCreateCategories} />
+                <input type="submit" value="add" />
+            </form>
+      
+        <form onSubmit={handleSubmit} >
         <h3>Edit your recipe!</h3>
         <label>Categories: </label>
         {categoryData.map((c, index) => {
@@ -165,6 +192,7 @@ function EditRecipe({category, handlePatch}) {
                 return <option key={c.id} value={c.id}>{c.name}</option>
             })}
         </select>
+               
             <br></br>
         <label>Recipe Name: </label>
         <input style={inputStyles} type="text" name="name" value={editItem.name} onChange={handleChange} />
@@ -196,6 +224,7 @@ function EditRecipe({category, handlePatch}) {
             <br></br>
         <input type="submit" value="update" />
     </form>
+    </>
   )
 }
 

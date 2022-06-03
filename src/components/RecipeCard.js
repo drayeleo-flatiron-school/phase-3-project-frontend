@@ -12,8 +12,10 @@ function RecipeCard({ recipe }) {
 
   return (
     <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={recipe.image_url} />
-      <Card.Body>
+      <Card.Img variant="top" src={recipe.image_url} style={{"height": "286px"}}/>
+      
+      <Card.Body className="d-flex flex-column">
+
         <Card.Title>{recipe.name}</Card.Title>
         <br></br>
         {/* <Card.Text>
@@ -23,10 +25,12 @@ function RecipeCard({ recipe }) {
         {/* <Button variant="primary" onClick={handleNavigateToRecipe}>
           View Recipe
         </Button> */}
-        <Button variant="primary" href={`/recipes/${recipe.id}`}>
+        <Button variant="primary" href={`/recipes/${recipe.id}`} className="mt-auto">
           View Recipe
         </Button>
+
       </Card.Body>
+      
     </Card>
   );
 }

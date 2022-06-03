@@ -59,7 +59,7 @@ function App() {
     setRecipeData(newData);
   }
 
-  function handlPostCategories(data) {
+  function handlePostCategories(data) {
     setCategoty(category => [...category, data]);
   }
 
@@ -85,10 +85,10 @@ function App() {
           <SearchResults />
         </Route>
         <Route exact path="/recipes/:id/edit" >
-          <EditRecipe category={category} handlePatch={handlePatch} handlPostCategories={handlPostCategories}/>
+          <EditRecipe category={category} handlePatch={handlePatch} handlePostCategories={handlePostCategories}/>
         </Route>
         <Route exact path="/post">
-          <PostRecipe handlePost={handlePost} category={category}/>
+          <PostRecipe handlePost={handlePost} category={category} handlePostCategories={handlePostCategories}/>
         </Route>
       </Switch>
     </Router>

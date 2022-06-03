@@ -20,7 +20,7 @@ const textareaStyles = {
 };
 
 
-function EditRecipe({category, handlePatch, handlPostCategories}) {
+function EditRecipe({category, handlePatch, handlePostCategories}) {
     const [newCategory, setNewCategory] = useState({name: ""})
     const [ingredientsInput, setIngredientsInput] = useState([]);
     const [instructionsInput, setInstructionsInput] = useState([]);
@@ -160,10 +160,10 @@ function EditRecipe({category, handlePatch, handlPostCategories}) {
             body: JSON.stringify(newCategory)
         })
         .then(res => res.json())
-        .then(data => handlPostCategories(data));
+        .then(data => handlePostCategories(data));
         setNewCategory({name: ""});
     }
-console.log(newCategory)
+
   return (
       <>
            <form onSubmit={fetchNewCategory}>

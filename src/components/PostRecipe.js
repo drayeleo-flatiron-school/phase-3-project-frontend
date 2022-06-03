@@ -11,7 +11,7 @@ const inputStyles = {
 };
 
 
-function PostRecipe({ handlePost, category }) {
+function PostRecipe({ handlePost, category, handlePostCategories }) {
 
     const history = useHistory();
 
@@ -26,6 +26,8 @@ function PostRecipe({ handlePost, category }) {
         name: "",
         image_url: ""
     });
+    // for creating new categories
+    const [newCategory, setNewCategory] = useState({name: ""})
 
 
 
@@ -119,9 +121,37 @@ function PostRecipe({ handlePost, category }) {
         });
     }
 
+    function handleCreateCategories(e) {
+        const { name, value } = e.target;
+        setNewCategory({...newCategory, [name]: value})
+    }
+
+    function fetchNewCategory(e) {
+        e.preventDefault();
+        fetch("http://localhost:9292/categories", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: 'application/json'
+            },
+            body: JSON.stringify(newCategory)
+        })
+        .then(res => res.json())
+        .then(data => handlePostCategories(data));
+        setNewCategory({name: ""});
+    }
+
 
   return (
-    <form onSubmit={handleSubmit}>
+      <>
+        <form onSubmit={fetchNewCategory}>
+                <p>want a new category?</p>
+                <input style={inputStyles} type="text" name="name" value={newCategory.name} onChange={handleCreateCategories} />
+                <input type="submit" value="add" />
+        </form>
+      
+        
+        <form onSubmit={handleSubmit}>
          <label>Recipe Name: </label>
          <input  style={inputStyles} onChange={handleChange} type="text" name="name" value={formData.name} />
                 <br></br>
@@ -173,7 +203,9 @@ function PostRecipe({ handlePost, category }) {
         </div>
 
         <input className="formButton submitButton"  type="submit" value="add a recipe" />
-    </form>
+    </form>  
+      </>
+    
   )
 }
 

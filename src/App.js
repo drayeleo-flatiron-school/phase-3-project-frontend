@@ -35,7 +35,7 @@ function App() {
   }
 
   function handlePost(data) {
-    console.log(data);
+    setRecipeData(recipeData => [...recipeData, data]);
   }
   
   function deleteRecipe(id) {
@@ -58,6 +58,8 @@ function App() {
     })
     setRecipeData(newData);
   }
+
+
 
   return (
     <Router>

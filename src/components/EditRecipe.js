@@ -24,6 +24,10 @@ function EditRecipe({category, handlePatch}) {
 
     const [ingredientsInput, setIngredientsInput] = useState([]);
     const [instructionsInput, setInstructionsInput] = useState([]);
+    const [categoryData, setCategoryData] = useState([{
+        id: "",
+        name: ""
+    }])
     const [editItem, setEditItem] = useState({
         // category_id: "",
         name: "",
@@ -35,15 +39,16 @@ function EditRecipe({category, handlePatch}) {
     const { id } = useParams();
     const history = useHistory();
 
+
+    console.log(categoryData);
+
     useEffect(() => {
         fetch(`http://localhost:9292/recipes/${id}`)
         .then(res => res.json())
         .then(data => {
             setEditItem({name:data.name,
             image_url:data.image_url})
-            
-        
-            
+            setCategoryData(data.categories);
             setIngredientsInput(JSON.parse(data.ingredients));
             setInstructionsInput(JSON.parse(data.instructions));
         })
@@ -84,7 +89,8 @@ function EditRecipe({category, handlePatch}) {
                 name: editItem.name,
                 ingredients: ingredientsInput,
                 instructions: instructionsInput,
-                image_url: editItem.image_url
+                image_url: editItem.image_url,
+                // categories: categoryData
             })
         })
         .then(res => res.json())
@@ -117,16 +123,48 @@ function EditRecipe({category, handlePatch}) {
         setInstructionsInput(list);
     }
 
+    function handleCategory(e) {
+        const {name, value} = e.target;
+        console.log(e.target.id)
+        console.log(name, value);
+        const newId = parseInt(value, 10);
+        const cIndex = category.findIndex(item => item.id === newId);
+        let tmpObj = {id: newId, name: category[cIndex].name};
+        setCategoryData([...categoryData, tmpObj]);
+    }
+
+    // function handleAddCategory() {
+    //     setCategoryData([...categoryData, {id: "", name: ""}])
+    // }
+
+
+    function handleRemoveCategory(index) {
+        const list = [...categoryData];
+        list.splice(index, 1);
+        setCategoryData(list);
+    }
 
   return (
     <form onSubmit={handleSubmit} >
         <h3>Edit your recipe!</h3>
-        {/* <select onChange={handleChange} name="category_id" value={editItem.category_id}>
-        <option  defaultValue>select a category</option>
+        <label>Categories: </label>
+        {categoryData.map((c, index) => {
+            return (
+                <div key={index}>
+                <input style={inputStyles} type="text" name="categories" value={c.name} onChange={handleCategory} />
+                {/* {categoryData.length -1 === index && (<button  onClick={handleCategoryNum} type="button"> + </button>)} */}
+                {categoryData.length > 1 && (<button onClick={() => handleRemoveCategory(index)} type="button"> X </button>)}
+                </div>
+                
+            )
+        })}
+        
+        <select onChange={handleCategory} name="categories" >
+        <option  defaultValue>add a category?</option>
             {category.map(c => {
                 return <option key={c.id} value={c.id}>{c.name}</option>
             })}
-        </select> */}
+        </select>
             <br></br>
         <label>Recipe Name: </label>
         <input style={inputStyles} type="text" name="name" value={editItem.name} onChange={handleChange} />

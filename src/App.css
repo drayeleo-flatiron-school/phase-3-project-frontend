@@ -102,7 +102,7 @@
   background-color: rgb(194, 55, 74);
 }
 
-/* Dylan's CSS Edits  */
+/* Dylan's Header and Results CSS Edits  */
 
 .results-container {
   display: flex;
@@ -174,4 +174,34 @@
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
   height: 286px;
+}
+
+/* Dylan's "EditRecipe"" CSS Edits  */
+
+.edit-page-group {
+  display: grid;
+  grid-template-columns: 175px auto;
+  padding: 20px 0px;
+}
+
+.edit-page-group > h5 {
+  margin: 20px 0px;
+}
+
+.edit-page-group > div > div {
+  display: flex;
+  align-items: center;
+}
+
+.edit-page-delete-button {
+  height: 30px;
+  width: 30px;
+  box-shadow: 0px 0px 0px;
+  outline: 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+#edit-page-container {
+  margin: 0px 30px 30px 30px;
 }

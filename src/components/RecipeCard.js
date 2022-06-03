@@ -15,10 +15,11 @@ function RecipeCard({ recipe }) {
       <Card.Img variant="top" src={recipe.image_url} />
       <Card.Body>
         <Card.Title>{recipe.name}</Card.Title>
-        <Card.Text>
+        <br></br>
+        {/* <Card.Text>
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
-        </Card.Text>
+        </Card.Text> */}
         {/* <Button variant="primary" onClick={handleNavigateToRecipe}>
           View Recipe
         </Button> */}

@@ -215,7 +215,7 @@ function PostRecipe({ handlePost, category, handlePostCategories }) {
                                     </div>)})} 
         </div>
 
-        <input className="submitButton"  type="submit" value="add a recipe" />
+        <input className="submitButton"  type="submit" value="Submit" />
     
         </Col>
         </Row>

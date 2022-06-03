@@ -17,10 +17,12 @@ function SearchResults() {
   return (
     <div>
       <h2>Search results for "{searchPhrase}":</h2>
-      <div className="results-container">
-        {searchResults.map((recipe) => (
-          <RecipeCard key={recipe.id} recipe={recipe} />
-        ))}
+      <div className="main-container">
+        <div className="results-container">
+          {searchResults.map((recipe) => (
+            <RecipeCard key={recipe.id} recipe={recipe} />
+          ))}
+        </div>
       </div>
     </div>
   );

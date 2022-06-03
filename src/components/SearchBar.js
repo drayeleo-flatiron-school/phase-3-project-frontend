@@ -17,15 +17,21 @@ function SearchBar() {
 
   return (
     <div className="searchbar">
-      <label htmlFor="search">Search Recipes or Ingredients</label>
+      {/* <label htmlFor="search">Search Recipes or Ingredients</label> */}
       <input
         type="text"
         id="search"
-        placeholder="Type a recipe to search..."
+        placeholder="Search recipes by name..."
         value={search}
         onChange={handleSearchInput}
+        className="search-input"
       />
-      <button onClick={() => handleSubmitSearch(search)}>Search</button>
+      <button
+        className="search-button"
+        onClick={() => handleSubmitSearch(search)}
+      >
+        Search
+      </button>
     </div>
   );
 }

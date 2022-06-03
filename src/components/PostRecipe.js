@@ -152,7 +152,7 @@ function PostRecipe({ handlePost, category, handlePostCategories }) {
             </Col>
             <Col>
             <form onSubmit={fetchNewCategory} className="new-category">
-                    <label className="label-size">want a new category?</label>
+                    <label className="label-size l-color">want a new category?</label>
                     <input style={inputStyles} type="text" name="name" value={newCategory.name} onChange={handleCreateCategories} />
                     <input className="addButton c-button" type="submit" value="add" />
             </form>
@@ -169,7 +169,7 @@ function PostRecipe({ handlePost, category, handlePostCategories }) {
 
                 <label className="label-size">Categories: </label>
                 <select className="dropdown" onChange={handleCategory} name="categories" >
-                    <option  defaultValue>add a category?</option>
+                    <option  defaultValue>select a category</option>
                         {category.map(c => {
                             return <option key={c.id} value={c.id}>{c.name}</option>
                         })}
@@ -198,7 +198,7 @@ function PostRecipe({ handlePost, category, handlePostCategories }) {
                                 return (
                                     <div key={index}>
                                         <input style={inputStyles} onChange={(e)=> handleInputData(e,index)} type="text" name="ingredients" value={ta.addInputs}  /> 
-                                        {addInputs.length -1 === index &&  (<button  className="addButton ingredients" onClick={handleInputs} type="button"> add ingredients </button>)}
+                                        {addInputs.length -1 === index &&  (<button  className="addButton ingredients" onClick={handleInputs} type="button"> more ingredients </button>)}
                                         {addInputs.length > 1 && (<button className="deleteButton" onClick={() => handleRemoveInputs(index)} type="button"> X </button>)}
                                     </div>)})} 
         </div>
@@ -210,7 +210,7 @@ function PostRecipe({ handlePost, category, handlePostCategories }) {
                                 return (
                                     <div key={index}>
                                         <textarea className="form-box"  onChange={(e)=> handleStepData(e,index)} type="text" name="ingredients" value={step.addSteps}  rows="5" cols="50" /> 
-                                        {addSteps.length -1 === index &&  (<button  className="addButton ta-button" onClick={handleSteps} type="button"> add instructions </button>)}
+                                        {addSteps.length -1 === index &&  (<button  className="addButton ta-button" onClick={handleSteps} type="button"> more steps </button>)}
                                         {addSteps.length > 1 && (<button className="deleteButton ta-deletebutton" onClick={() => handleRemoveSteps(index)} type="button"> X </button>)}
                                     </div>)})} 
         </div>

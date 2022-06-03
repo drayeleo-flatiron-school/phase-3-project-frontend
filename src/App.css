@@ -300,4 +300,9 @@
   border-radius: 4%;
   margin-top: 15%;
   margin-right: 5%;
+  width: 180px
+}
+
+.l-color {
+  color: gray;
 }

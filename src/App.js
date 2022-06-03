@@ -85,7 +85,7 @@ function App() {
           <EditRecipe category={category} handlePatch={handlePatch} />
         </Route>
         <Route exact path="/post">
-          <PostRecipe handlePost={handlePost} />
+          <PostRecipe handlePost={handlePost} category={category}/>
         </Route>
       </Switch>
     </Router>

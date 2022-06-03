@@ -41,15 +41,15 @@ function SingleRecipe({deleteRecipe}) {
   function buildTagButtons() {
     return (
       <div>
-        {singleRecipe.categories.map((category) => (
+        {singleRecipe.tags.map((tag) => (
           // <button key={category.id} href={`/categories/${category.id}`} >
           //   #{category.name}
           // </button>
           <button
-            key={category.id}
-            onClick={() => handleNavigateToCategory(category.id)}
+            key={tag.id}
+            onClick={() => handleNavigateToCategory(tag.id)}
           >
-            #{category.name}
+            #{tag.name}
           </button>
         ))}
       </div>

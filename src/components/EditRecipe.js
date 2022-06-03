@@ -48,7 +48,7 @@ function EditRecipe({category, handlePatch}) {
         .then(data => {
             setEditItem({name:data.name,
             image_url:data.image_url})
-            setCategoryData(data.categories);
+            setCategoryData(data.tags);
             setIngredientsInput(JSON.parse(data.ingredients));
             setInstructionsInput(JSON.parse(data.instructions));
         })
@@ -90,7 +90,7 @@ function EditRecipe({category, handlePatch}) {
                 ingredients: ingredientsInput,
                 instructions: instructionsInput,
                 image_url: editItem.image_url,
-                // categories: categoryData
+                tags: categoryData
             })
         })
         .then(res => res.json())

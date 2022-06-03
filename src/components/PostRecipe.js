@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
+import { Container, Row, Col } from 'react-grid-system';
 
 const inputStyles = {
     padding: "10px",
@@ -8,6 +9,7 @@ const inputStyles = {
     borderRadius: "15px",
     width: "70%",
     margin: "20px 0",
+    borderColor: "rgba(194, 55, 74, 0.61)"
 };
 
 
@@ -143,21 +145,30 @@ function PostRecipe({ handlePost, category, handlePostCategories }) {
 
 
   return (
-      <>
-        <form onSubmit={fetchNewCategory}>
-                <p>want a new category?</p>
-                <input style={inputStyles} type="text" name="name" value={newCategory.name} onChange={handleCreateCategories} />
-                <input type="submit" value="add" />
-        </form>
-      
+      <Container>
+        <Row className="title-box">
+            <Col>
+                <h1 className="recipe-title">What's your favorite recipe?</h1>
+            </Col>
+            <Col>
+            <form onSubmit={fetchNewCategory} className="new-category">
+                    <label className="label-size">want a new category?</label>
+                    <input style={inputStyles} type="text" name="name" value={newCategory.name} onChange={handleCreateCategories} />
+                    <input className="addButton c-button" type="submit" value="add" />
+            </form>
+            </Col>
+        </Row>
         
         <form onSubmit={handleSubmit}>
-         <label>Recipe Name: </label>
+        <Row>
+        <Col lg={6}>
+        <label className="label-size">Recipe Name: </label>
+                <br></br>
          <input  style={inputStyles} onChange={handleChange} type="text" name="name" value={formData.name} />
                 <br></br>
 
-                <label>Categories: </label>
-                <select onChange={handleCategory} name="categories" >
+                <label className="label-size">Categories: </label>
+                <select className="dropdown" onChange={handleCategory} name="categories" >
                     <option  defaultValue>add a category?</option>
                         {category.map(c => {
                             return <option key={c.id} value={c.id}>{c.name}</option>
@@ -168,7 +179,7 @@ function PostRecipe({ handlePost, category, handlePostCategories }) {
                             <div key={index}>
                             <input style={inputStyles} type="text" name="categories" value={c.name} onChange={handleCategory} />
                             {/* {categoryData.length -1 === index && (<button  onClick={handleCategoryNum} type="button"> + </button>)} */}
-                            {categoryData.length > 1 && (<button onClick={() => handleRemoveCategory(index)} type="button"> X </button>)}
+                            {categoryData.length > 1 && (<button className="deleteButton" onClick={() => handleRemoveCategory(index)} type="button"> X </button>)}
                             </div>
                             )
                 }) : null}
@@ -177,34 +188,42 @@ function PostRecipe({ handlePost, category, handlePostCategories }) {
 
 
                 <br></br>  
-        <label>Image URL: </label>
+        <label className="label-size">Image URL: </label>
+                <br></br>
         <input style={inputStyles} onChange={handleChange} type="text" name="image_url" value={formData.image_url} />
                  <br></br>
-        <label>Ingredients: </label>
+        <label className="label-size">Ingredients: </label>
         <div>
                 {addInputs.map((ta, index) => {
                                 return (
                                     <div key={index}>
                                         <input style={inputStyles} onChange={(e)=> handleInputData(e,index)} type="text" name="ingredients" value={ta.addInputs}  /> 
-                                        {addInputs.length -1 === index &&  (<button  onClick={handleInputs} type="button"> + </button>)}
-                                        {addInputs.length > 1 && (<button onClick={() => handleRemoveInputs(index)} type="button"> X </button>)}
+                                        {addInputs.length -1 === index &&  (<button  className="addButton ingredients" onClick={handleInputs} type="button"> add ingredients </button>)}
+                                        {addInputs.length > 1 && (<button className="deleteButton" onClick={() => handleRemoveInputs(index)} type="button"> X </button>)}
                                     </div>)})} 
         </div>
-
-        <label>Instructions: </label>
+        </Col>
+        <Col lg={6}>
+        <label className="label-size">Instructions: </label>
         <div>
                 {addSteps.map((step, index) => {
                                 return (
                                     <div key={index}>
-                                        <textarea style={inputStyles} onChange={(e)=> handleStepData(e,index)} type="text" name="ingredients" value={step.addSteps}  /> 
-                                        {addSteps.length -1 === index &&  (<button  onClick={handleSteps} type="button"> + </button>)}
-                                        {addSteps.length > 1 && (<button onClick={() => handleRemoveSteps(index)} type="button"> X </button>)}
+                                        <textarea className="form-box"  onChange={(e)=> handleStepData(e,index)} type="text" name="ingredients" value={step.addSteps}  rows="5" cols="50" /> 
+                                        {addSteps.length -1 === index &&  (<button  className="addButton ta-button" onClick={handleSteps} type="button"> add instructions </button>)}
+                                        {addSteps.length > 1 && (<button className="deleteButton ta-deletebutton" onClick={() => handleRemoveSteps(index)} type="button"> X </button>)}
                                     </div>)})} 
         </div>
 
-        <input className="formButton submitButton"  type="submit" value="add a recipe" />
-    </form>  
-      </>
+        <input className="submitButton"  type="submit" value="add a recipe" />
+    
+        </Col>
+        </Row>
+        </form> 
+        
+        
+        
+      </Container>
     
   )
 }

@@ -205,3 +205,99 @@
 #edit-page-container {
   margin: 0px 30px 30px 30px;
 }
+
+
+/* post page */
+.new-category {
+  margin: 0 0 10% 50%;
+}
+.recipe-title {
+  margin-top: 30px ;
+  text-align: center;
+}
+
+.title-box {
+  height: 20%;
+}
+
+/* add input button */
+.addButton {
+  border-radius: 30%;
+  left: 70%;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgba(194, 55, 74, 0.59);
+  border-color: rgba(194, 55, 74, 0.61);
+  cursor: pointer;
+}
+
+.deleteButton {
+  border-radius: 30%;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgba(55, 118, 194, 0.59);
+  border-color: rgba(55, 69, 194, 0.61);
+  cursor: pointer;
+  margin-left:3%
+}
+
+.submitButton {
+  border-radius: 5%;
+  margin-left: 70%;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgba(194, 55, 74, 0.59);
+  border-color: rgba(194, 55, 74, 0.61);
+  margin-top: 25%;
+  height: 50px;
+  width: 170px;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.form-box {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  outline: 10px;
+  border-radius: 15px;
+  width: 70%;
+  border-color: rgba(194, 55, 74, 0.61);
+}
+
+.ta-button {
+  position: absolute;
+  border-radius: 4%;
+  margin-top: 10%;
+}
+
+.ta-deletebutton {
+  margin-left: 90%;
+  
+}
+
+.label-size {
+  font-size: 1.2rem;
+}
+
+.dropdown {
+  margin: 5% 0 5% 10%;
+  background-color: rgba(235, 129, 143, 0.61);
+  width: 150px;
+  height: 40px;
+  font-size: 1rem;
+  border-radius: 4%
+}
+
+.c-button {
+  margin-left: 5%;
+  border-radius: 4%;
+}
+
+.ingredients {
+  position: absolute;
+  border-radius: 4%;
+  margin-top: 15%;
+  margin-right: 5%;
+}
